@@ -1,7 +1,7 @@
 "use strict";
 
 const escapeHtml = require("escape-html");
-const getStocksRequest = require('./adapters/GetStocksRequest')
+const getStocksRequest = require("./adapters/GetStocksRequest");
 /**
  * HTTP Cloud Function.
  * This function is exported by index.js, and is executed when
@@ -15,22 +15,19 @@ const getStocksRequest = require('./adapters/GetStocksRequest')
 exports.helloGET = (req, res) => {
   //res.send("Hello World!");
 
+  console.log(req.query.stockid);
   try {
     //const stockID //get from req
 
-    const response = getStocksRequest(req)
-    return response;
-
+    const responseData = getStocksRequest(req.query.stockid);
+    console.log(responseData);
+    //return response;
+    res.send(responseData);
   } catch (err) {
-    console.error(err)
+    console.error(err);
     //return err
-    res.send("Hello World!");
-
+    res.send(err);
   }
-
-
-
-
 };
 // [END functions_helloworld_get]
 
@@ -45,10 +42,6 @@ exports.helloGET = (req, res) => {
  */
 exports.helloHttp = (req, res) => {
   res.send(`Hello ${escapeHtml(req.query.name || req.body.name || "World")}!`);
-
-
-  
-
 };
 // [END functions_helloworld_http]
 
