@@ -1,15 +1,13 @@
-const Currency = require("../ports/CurrencyService");
-const Repository = require("../ports/StocksRepository");
+const CurrencyService = require("../ports/CurrencyService");
+const StocksRepository = require("../ports/StocksRepository");
 
 const CURRENCIES = ["USD", "CAD", "AUD"];
 
 const retrieveStockValues = async (stockID) => {
   try {
-    const stockValue = await Repository.getStockData(stockID);
-    const currencyList = await Currency.getCurrenciesData(CURRENCIES);
+    const stockValue = await StocksRepository.getStockData(stockID);
 
-    console.log("CURRENCYLIST");
-    console.log(currencyList);
+    const currencyList = await CurrencyService.getCurrenciesData(CURRENCIES);
 
     const stockWithCurrencies = {
       stock: stockValue.stockID,
@@ -19,16 +17,13 @@ const retrieveStockValues = async (stockID) => {
     };
 
     for (const currency in currencyList) {
-      console.log("..." + currency);
       stockWithCurrencies.values[currency] = (
         stockValue.Value * currencyList[currency]
       ).toFixed(2);
     }
-    console.log("do we get here PART 2222");
 
     return stockWithCurrencies;
   } catch (err) {
-    console.log("do we get here?");
     return err;
   }
 };

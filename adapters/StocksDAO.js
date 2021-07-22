@@ -6,19 +6,15 @@ require("dotenv").config();
 const dotenv = require("dotenv");
 dotenv.config();
 
-console.log("Token from Datastore");
-
-const getStockValue = async (stockID = "AMZN") => {
+const getStockValue = async (stockID = "AAPL") => {
   const query = datastore
     .createQuery("Stocks")
     .filter("stockID", "=", stockID)
     .limit(1);
 
   try {
-    //const stockData = await documentClient.get(params).promise()
     const [stocks] = await datastore.runQuery(query);
 
-    console.log(stocks);
     return stocks[0];
   } catch (err) {
     console.log(err);

@@ -3,6 +3,7 @@ const getStockValue = require("../adapters/StocksDAO");
 const getStockData = async (stockID) => {
   try {
     const data = await getStockValue(stockID);
+
     return data;
   } catch (err) {
     return err;

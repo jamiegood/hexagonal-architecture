@@ -1,11 +1,10 @@
 const HTTPHandler = require("../ports/HTTPHandler");
 
-const getStocksRequest = async (res, stockID) => {
+const getStocksRequest = async (stockID) => {
   let responseData = {};
 
   try {
     responseData = await HTTPHandler.retrieveStock(stockID);
-    console.log(responseData);
   } catch (err) {
     console.log(err);
     return err;

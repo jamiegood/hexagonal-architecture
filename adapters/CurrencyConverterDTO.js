@@ -1,27 +1,18 @@
 const axios = require("axios");
+require("dotenv").config();
 
-const API_KEY = process.env.API_KEY;
+// Get API_KEY from data.fixed.io
+const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY;
 
-let currencyRates = {};
-currencyRates["USD"] = 0.5;
-currencyRates["CAD"] = 1.0;
-currencyRates["AUD"] = 2.0;
-
-const getCurrencies = async (currencies) => {
-  // try {
-  //   // replace with  URL from the service
-  //   const res = await axios.get(
-  //     `http://api.mysite.com?access_key=${API_KEY}&symbols=${currencies.toString()}`
-  //   );
-  //   return res.data;
-  // } catch (err) {
-  //   return err;
-  // }
-  // console.log("currencyRates");
-  // console.log(currencyRates);
-  // console.log("FINSIH currencyRates");
-
-  return currencyRates;
+const getCurrencies = async (currencies = "USD") => {
+  try {
+    const res = await axios.get(
+      `http://data.fixer.io/api/latest?access_key=${CURRENCY_API_KEY}&symbols=${currencies.toString()}`
+    );
+    return res.data;
+  } catch (err) {
+    return err;
+  }
 };
 
 module.exports = getCurrencies;
