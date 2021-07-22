@@ -12,15 +12,19 @@ const getStocksRequest = require("./adapters/GetStocksRequest");
  * @param {Object} res Cloud Function response context.
  *                     More info: https://expressjs.com/en/api.html#res
  */
-exports.helloGET = (req, res) => {
+exports.helloGET = async (req, res) => {
   //res.send("Hello World!");
 
   console.log(req.query.stockid);
   try {
     //const stockID //get from req
 
-    const responseData = getStocksRequest(req.query.stockid);
+    const responseData = await getStocksRequest(req.query.stockid);
+
+    console.log("THIS IS RESPONSEDATRA");
     console.log(responseData);
+    console.log("THIS IS RESPONSEDATRA AFTER");
+
     //return response;
     res.send(responseData);
   } catch (err) {
