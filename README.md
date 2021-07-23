@@ -3,12 +3,11 @@
 
 ## References:
 
-- [Developing Evolutoinary Architecture with AWS Lambda](https://aws.amazon.com/blogs/compute/developing-evolutionary-architecture-with-aws-lambda/)
-- [Cloud Functions Hello World sample source code][code]
+- [Developing Evolutionary Architecture with AWS Lambda](https://aws.amazon.com/blogs/compute/developing-evolutionary-architecture-with-aws-lambda/)
 
 ## Summary:
 
-Inspired by Luca Mezzalira and his article [Developing Evolutoinary Architecture with AWS Lambda](https://aws.amazon.com/blogs/compute/developing-evolutionary-architecture-with-aws-lambda/) I created a Google Cloud Platform version.
+Inspired by Luca Mezzalira and his article [Developing Evolutionary Architecture with AWS Lambda](https://aws.amazon.com/blogs/compute/developing-evolutionary-architecture-with-aws-lambda/) I created a Google Cloud Platform version.
 
 - Google Cloud Function instead of AWS Lambda
 - Datastore instead of DynamoDB
