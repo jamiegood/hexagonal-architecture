@@ -1,6 +1,6 @@
 <img src="https://thefullstack.network/assets/thefullstack.svg" alt="The Full Stack Network logo" title="The Full Stack Network" align="right" height="96" width="96"/>
 
-# Google Cloud Functions - Hexagonal Architecture Cloud Function Example
+# Hexagonal Architecture Cloud Function Example
 
 ## References:
 
